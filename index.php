@@ -1,25 +1,19 @@
-<?php ob_start() ?>
-
-
-
-
-
-
-
-
-
-
 <?php
 
-$class = "container-fluid";
-$nav = "<li class='nav-item'>
-<a class='nav-link' href='./connexion.php'>Connexion</a>
-</li>
-<li class='nav-item'>
-<a class='nav-link' href='./inscription.php'>Inscription</a>
-</li>";
+require_once "controller/AnimeController.php";
+$animeController = new AnimeController;
 
-$content = ob_get_clean();
-
-require_once "base.html.php";
-?>
+if (empty($_GET['page'])) {
+    require_once "view/home.view.php";
+}else {
+    switch ($_GET['page']) {
+        case 'accueil': require_once "view/home.view.php";
+            break;
+        case 'connexion': require_once "view/connexion.view.php";
+            break;
+        case 'inscription': require_once "view/inscription.view.php";
+            break;
+        case 'admin': require_once "view/admin.view.php";
+            break;
+    }
+}

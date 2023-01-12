@@ -1,12 +1,4 @@
-<?php
-require_once "AnimeManager.php";
-
-$animeManager = new AnimeManager;
-$animeManager->loadAnimes();
-$animes = $animeManager->getAnimes();
-
-ob_start();
-?>
+<?php ob_start(); ?>
 
 <div class="container my-5">
 

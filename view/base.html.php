@@ -18,7 +18,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark" id="nav">
         <div class="<?= $class ?>">
-            <a class="navbar-brand" id="titre" href="./index.php">VoirAnime</a>
+            <a class="navbar-brand" id="titre" href="accueil">VoirAnime</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria- controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

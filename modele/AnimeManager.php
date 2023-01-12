@@ -1,6 +1,5 @@
 <?php
 require_once "Manager.php";
-require_once "Anime.php";
 
 class AnimeManager extends Manager {
     private $animes;
