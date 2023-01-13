@@ -9,7 +9,7 @@
                 Anime
             </div>
             <div class="p-2">
-                <a href="./create.php"><button type="button" class="btn btn-outline-dark btn-sm">Ajouter</button></a>
+                <a href="<?= URL ?>admin/add"><button type="button" class="btn btn-outline-dark btn-sm">Ajouter</button></a>
             </div>
         </div>
 
@@ -25,12 +25,7 @@
                             </div>
                         </div>
                         <div class="p-3 d-flex justify-content-between">
-                            <form action="./edit.php" method="post">
-                                <input hidden type="text" name="animeID" value="">
-                                <button class="btn" type="submit">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </button>
-                            </form>
+                            <a href="<?= URL ?>admin/edit/<?= $anime->getId() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             <form action="./delete.php" method="post" onSubmit="return confirm('êtes-vous certain ?')">
                                 <input hidden type="text" name="animeID" value="">
                                 <button class="btn" type="submit">
