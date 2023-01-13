@@ -31,7 +31,7 @@ if (empty($_GET['page'])) {
             } elseif ($url[1] === "editvalid") {
                 $animeController->editAnimeValidation();
             } elseif ($url[1] === "delete") {
-                echo "supprimer un jeu";
+                $animeController->deleteAnime($url[2]);
             }
             break;
     }

@@ -26,11 +26,8 @@
                         </div>
                         <div class="p-3 d-flex justify-content-between">
                             <a href="<?= URL ?>admin/edit/<?= $anime->getId() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <form action="./delete.php" method="post" onSubmit="return confirm('êtes-vous certain ?')">
-                                <input hidden type="text" name="animeID" value="">
-                                <button class="btn" type="submit">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
+                            <form action="<?= URL ?>admin/delete/<?= $anime->getId() ?>" method="post" onSubmit="return confirm('êtes-vous certain ?')">
+                                <button class="btn" type="submit"><i class="fa-solid fa-trash"></i><button>
                             </form>
                         </div>
                     </div>

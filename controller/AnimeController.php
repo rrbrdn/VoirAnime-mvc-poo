@@ -35,4 +35,9 @@ class AnimeController {
         $this->animeManager->editAnimeDB($_POST['id-anime'],$_POST['titre'],$_POST['genre'],$_POST['descri'],$_POST['video']);
         header('Location:' . URL . "admin");
     }
+
+    public function deleteAnime($id){
+        $this->animeManager->deleteAnimeDB($id);
+        header("Location:" .URL. "admin");
+    }
 }
