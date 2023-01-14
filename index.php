@@ -11,7 +11,11 @@ if (empty($_GET['page'])) {
     $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     switch ($url[0]) {
         case 'accueil':
-            require_once "view/home.view.php";
+            if (empty($url[1])) {
+                $animeController->homeAnimeValidation();
+            } elseif ($url[1] === "showAnime") {
+                $animeController->showAnimeValidation($url[2]);
+            }
             break;
         case 'connexion':
             require_once "view/connexion.view.php";

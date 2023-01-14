@@ -29,6 +29,28 @@ class AnimeManager extends Manager
         }
     }
 
+    public function homeAnime()
+    {
+        $req = $this->getBdd()->prepare("SELECT * FROM anime");
+        $req->execute();
+        $myAnimes = $req->fetchAll();
+        $req->closeCursor();
+        
+        return $myAnimes;
+    }
+
+    public function showAnime($id)
+    {
+        $req = ("SELECT * FROM anime WHERE id = :id");
+        $statement = $this->getBdd()->prepare($req);
+        $statement->bindValue(":id", $id, PDO::PARAM_INT);
+        $statement->execute();
+        $myAnimes = $statement->fetchAll();
+        $statement->closeCursor();
+
+        return $myAnimes;
+    }
+
     public function newAnimeDB($titre, $genre, $descri, $video)
     {
         // check if submitted with post
