@@ -24,7 +24,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
-                    <?=$nav?>
+                    <?php if (!empty($_SESSION['id'])) : ?>
+                        <li class='nav-item dropdown'>
+                            <a class='nav-link dropdown-toggle' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
+                                <img class='rounded-circle' width='50' src='<?= URL ?>asset/img/<?= $_SESSION['img_profil'] ?>'></a>
+                            <div class='dropdown-menu'>
+                                <a class='dropdown-item d-flex align-items-center' href=''>Ma collection</a>
+                                <a class='dropdown-item d-flex align-items-center' href=''>Mon profil</a>
+                                <div class='dropdown-divider'></div>
+                                <a class='dropdown-item' href='<?= URL ?>deconnexion'>Se déconnecter</a>
+                            </div>
+                        </li>
+                    <?php else : ?>
+                        <li class='nav-item'>
+                            <a class='nav-link' href='<?= URL ?>connexion'>Connexion</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='nav-link' href='<?= URL ?>inscription'>Inscription</a>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </div>
         </div>
@@ -42,3 +60,4 @@
 </body>
 
 </html>
+

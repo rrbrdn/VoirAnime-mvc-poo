@@ -3,7 +3,7 @@
 
 
 <div class="container text-white d-flex justify-content-center mt-5">
-    <form action="inscription.php" method="post" enctype="multipart/form-data">
+    <form action="<?=URL?>inscription/uvalid" method="post" enctype="multipart/form-data">
         <fieldset>
             <div class="form-group p-1">
                 <input type="text" class="form-control rounded-3 bg-transparent text-white border-bottom-2" name="username" placeholder="Nom d'utilisateur" autocomplete="off">
