@@ -2,7 +2,7 @@
 
 session_start();
 
-define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") ."://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']));
+define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']));
 
 require_once "controller/AnimeController.php";
 $animeController = new AnimeController;
@@ -10,6 +10,8 @@ require_once "controller/UserController.php";
 $userController = new UserController;
 require_once "controller/FavorisController.php";
 $favorisController = new FavorisController;
+require_once "controller/CommentController.php";
+$commentController = new CommentController;
 
 if (empty($_GET['page'])) {
     $animeController->homeAnimeValidation();
@@ -47,6 +49,8 @@ if (empty($_GET['page'])) {
                 $userController->displayUser();
             } elseif ($url[1] === "editmail") {
                 $userController->editMailValidation();
+            } elseif ($url[1] === "editpdw") {
+                $userController->editPdwValidation();
             }
             break;
         case 'ma-collection':

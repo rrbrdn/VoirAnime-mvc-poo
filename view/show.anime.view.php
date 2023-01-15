@@ -11,14 +11,14 @@
             <iframe class="col-lg-12" width="1100" height="430" src="<?= $anime['video'] ?>" . $video . frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="mt-5">
-            <?php if(!empty($_SESSION['roleUser'])) : ?>
+            <?php if (!empty($_SESSION['roleUser'])) : ?>
                 <form action='<?= URL ?>ma-collection/add/<?= $anime['id'] ?>' method='post'>
                     <button id='btn' class='btn btn-sm rounded-1 d-flex align-items-center'>
                         Ajouter à ma collection
                     </button>
                 </form>
             <?php else : ?>
-                <a href="<?=URL?>connexion" class="btn btn-sm rounded-1" id="btn">Ajouter à ma collection</a>
+                <a href="<?= URL ?>connexion" class="btn btn-sm rounded-1" id="btn">Ajouter à ma collection</a>
             <?php endif ?>
         </div>
     <?php endforeach ?>
@@ -32,7 +32,7 @@
                     <h4 class="text-white">Compte Requis</h4>
                 </div>
                 <div class="text-white d-flex justify-content-center">
-                    <p><a href="<?=URL?>connexion" style="color:RGB(244, 117, 33);">Se connecter </a> ou <a href="<?=URL?>inscription" style="color:RGB(244, 117, 33);">Créer un compte</a> pour commenter</p>
+                    <p><a href="<?= URL ?>connexion" style="color:RGB(244, 117, 33);">Se connecter </a> ou <a href="<?= URL ?>inscription" style="color:RGB(244, 117, 33);">Créer un compte</a> pour commenter</p>
                 </div>
             </div>
         </div>
@@ -49,10 +49,25 @@
             </form>
         </div>
         <h4 class='text-white container'>Commentaires</h4>
+
+        <!-- <?php foreach ($comments as $comment) : ?>
+            <div class="container mt-5">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"><?= $comment['comment'] ?></p>
+                        <?php if (isset($_SESSION['roleUser']) && $_SESSION['roleUser'] == 1) : ?>
+                            <a href="<?= URL ?>commentaire/supprimer/<?= $comment['id'] ?>" class="btn btn-sm rounded-1" id="btn">Supprimer</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?> -->
     <?php endif; ?>
 </div>
 
 <?php
+var_dump($comments);
 $class = "container-fluid";
 $content = ob_get_clean();
 require_once "view/base.html.php";

@@ -38,7 +38,7 @@
                     <small class="text-white">Adresse e-mail actuelle</small>
                     <p><?= $user['email'] ?></p>
                 </div>
-                <form action="<?=URL?>editmail" method="post" enctype="multipart/form-data">
+                <form action="<?=URL?>profil/editmail" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <div class="form-group p-3">
                             <input type="text" class="form-control bg-transparent border border-2 w-25" name="email">
@@ -52,7 +52,22 @@
                 </form>
             </div>
             <div class="tab-pane fade" id="mdp" role="tabpanel">
-                <p>mdp</p>
+                <div class="m-3">
+                    <small class="text-white">Mot de passe actuel</small>
+                    <p><?= $user['pdw'] ?></p>
+                </div>
+                <form action="<?=URL?>profil/editpdw" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="form-group p-3">
+                            <input type="text" class="form-control bg-transparent border border-2 w-25" name="password">
+                        </div>
+                        <input hidden type="text" name="idUser" value="<?= $user['id'] ?>">
+                        <hr>
+                        <div class="d-flex justify-content-end p-3">
+                            <button type="submit" class="btn btn-primary" name="submit">Edit</button>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
             <div class="tab-pane fade" id="supprimer" role="tabpanel">
                 <form action='./../src/component/delete-compte.php' method='post'>

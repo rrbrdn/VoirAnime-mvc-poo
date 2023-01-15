@@ -44,7 +44,13 @@ class UserManager extends Manager
         $editMail->bindValue(":email", $email, PDO::PARAM_STR);
         $editMail->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
         $editMail->execute();
-        var_dump($_POST);
+    }
+
+    public function editPdw($pdw){
+        $editPdw = $this->getBdd()->prepare('UPDATE user SET pdw = :pdw WHERE id = :id');
+        $editPdw->bindValue(":pdw", $pdw, PDO::PARAM_STR);
+        $editPdw->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $editPdw->execute();
     }
 
     public function newUserDB($username, $email, $pdw)

@@ -31,6 +31,12 @@ class UserController
         header('Location:' . URL . "profil");
     }
 
+    public function editPdwValidation()
+    {
+        $this->usermanager->editPdw($_POST['pdw']);
+        header('Location:' . URL . "profil");
+    }
+
     public function newUserValidation()
     {
         $this->usermanager->newUserDB($_POST['username'], $_POST['email'], $_POST['pdw']);

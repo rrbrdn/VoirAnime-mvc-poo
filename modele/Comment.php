@@ -7,7 +7,7 @@ class Comment
     private int $user_id;
     private int $id_anime;
 
-    public function __construct(int $id, string $comment, int $user_id, int $id_anime)
+    public function __construct($id, $comment, $user_id, $id_anime)
     {
         $this->id = $id;
         $this->comment = $comment;
