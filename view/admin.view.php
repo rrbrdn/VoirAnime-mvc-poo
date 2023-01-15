@@ -14,7 +14,6 @@
             </tr>
         </thead>
         <tbody>
-
             <?php foreach ($animes as $anime) : ?>
                 <tr>
                     <td><?= $anime->getTitre() ?></td>

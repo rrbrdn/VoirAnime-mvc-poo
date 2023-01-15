@@ -39,6 +39,9 @@
                                 <a class='nav-link' href='<?= URL ?>admin'>Admin</a>
                             </li>
                             <li class='nav-item'>
+                                <a class='nav-link' href='<?= URL ?>admin/add'>ajouter</a>
+                            </li>
+                            <li class='nav-item'>
                                 <a class='nav-link' href='<?= URL ?>deconnexion'>déconnexion</a>
                             </li>
                         <?php endif ?>

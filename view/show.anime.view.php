@@ -11,11 +11,15 @@
             <iframe class="col-lg-12" width="1100" height="430" src="<?= $anime['video'] ?>" . $video . frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="mt-5">
-            <form action='<?= URL ?>ma-collection/add/<?= $anime['id'] ?>' method='post'>
-                <button id='btn' class='btn btn-sm rounded-1 d-flex align-items-center'>
-                    Ajouter à ma collection
-                </button>
-            </form>
+            <?php if(!empty($_SESSION['roleUser'])) : ?>
+                <form action='<?= URL ?>ma-collection/add/<?= $anime['id'] ?>' method='post'>
+                    <button id='btn' class='btn btn-sm rounded-1 d-flex align-items-center'>
+                        Ajouter à ma collection
+                    </button>
+                </form>
+            <?php else : ?>
+                <a href="<?=URL?>connexion" class="btn btn-sm rounded-1" id="btn">Ajouter à ma collection</a>
+            <?php endif ?>
         </div>
     <?php endforeach ?>
 
@@ -28,7 +32,7 @@
                     <h4 class="text-white">Compte Requis</h4>
                 </div>
                 <div class="text-white d-flex justify-content-center">
-                    <p><a href="./../src/component/login.php" style="color:RGB(244, 117, 33);">Se connecter </a> ou <a href="./../src/component/inscription.php" style="color:RGB(244, 117, 33);">Créer un compte</a> pour commenter</p>
+                    <p><a href="<?=URL?>connexion" style="color:RGB(244, 117, 33);">Se connecter </a> ou <a href="<?=URL?>inscription" style="color:RGB(244, 117, 33);">Créer un compte</a> pour commenter</p>
                 </div>
             </div>
         </div>
