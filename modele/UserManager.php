@@ -20,7 +20,6 @@ class UserManager extends Manager
 
     public function loadUsers()
     {
-        // COMPARRE L EMAIL ET LE MOT DE PASSE AVEC LA BDD
         $connectTest = $this->getBdd()->prepare('SELECT * FROM user');
         $connectTest->execute();
         $connectTest = $connectTest->fetchAll();
@@ -29,6 +28,23 @@ class UserManager extends Manager
             $u = new User($user['id'], $user['roleUser'], $user['username'], $user['email'], $user['pdw'], $user['img_profil']);
             $this->addUser($u);
         }
+    }
+
+    public function profil(){
+        $connectTest = $this->getBdd()->prepare('SELECT * FROM user WHERE id = :id');
+        $connectTest->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $connectTest->execute();
+        $Myusers = $connectTest->fetch();
+
+        return $Myusers;
+    }
+
+    public function editMail($email){
+        $editMail = $this->getBdd()->prepare('UPDATE user SET email = :email WHERE id = :id');
+        $editMail->bindValue(":email", $email, PDO::PARAM_STR);
+        $editMail->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
+        $editMail->execute();
+        var_dump($_POST);
     }
 
     public function newUserDB($username, $email, $pdw)
@@ -122,5 +138,6 @@ class UserManager extends Manager
     public function deconnectUserDB()
     {
         session_destroy();
+        header('Location:' . URL . '');
     }
 }

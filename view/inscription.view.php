@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-center p-1 ">
                 <button type="submit" id="btn" class="btn rounded-3 w-75" name="submit">Crée un compte</button>
             </div>
-            <p>Vous avez déjà un compte ? <a href="./connexion.php" style="color:RGB(244, 117, 33);">Se connecter</a></p>
+            <p>Vous avez déjà un compte ? <a href="<?=URL?>connexion" style="color:RGB(244, 117, 33);">Se connecter</a></p>
         </fieldset>
     </form>
 </div>

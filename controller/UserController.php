@@ -16,7 +16,19 @@ class UserController
     public function displayUsers()
     {
         $users = $this->usermanager->getUsers();
-        require_once "view/admin.view.php";
+        require_once "view/profil.view.php";
+    }
+
+    public function displayUser()
+    {
+        $user = $this->usermanager->profil();
+        require_once "view/profil.view.php";
+    }
+
+    public function editMailValidation()
+    {
+        $this->usermanager->editMail($_POST['email']);
+        header('Location:' . URL . "profil");
     }
 
     public function newUserValidation()
@@ -28,12 +40,11 @@ class UserController
     public function connectUserValiation()
     {
         $this->usermanager->connectUserDB($_POST['email'], $_POST['pdw']);
-        header('Location:' . URL . "accueil");    
+        header('Location:' . URL . '');    
     }
 
     public function disconnectUser()
     {
         $this->usermanager->deconnectUserDB();
-        // header('Location:' . URL . "accueil");
     }
 }

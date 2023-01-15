@@ -10,7 +10,7 @@ require_once "controller/UserController.php";
 $userController = new UserController;
 
 if (empty($_GET['page'])) {
-    require_once "view/home.view.php";
+    $animeController->homeAnimeValidation();
 } else {
     $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     switch ($url[0]) {
@@ -27,6 +27,7 @@ if (empty($_GET['page'])) {
             } elseif ($url[1] === "cvalid") {
                 $userController->connectUserValiation();
             }
+            break;
         case 'deconnexion':
             if (empty($url[1])) {
                 $userController->disconnectUser();
@@ -38,10 +39,18 @@ if (empty($_GET['page'])) {
             } elseif ($url[1] === "uvalid") {
                 $userController->newUserValidation();
             }
+            break;
         case 'profil':
             if (empty($url[1])) {
-                require_once "view/profil.view.php";
+                $userController->displayUser();
+            } elseif ($url[1] === "editmail") {
+                $userController->editMailValidation();
             }
+            break;
+        case 'ma-collection':
+            if (empty($url[1])) {
+                require_once "view/collection.view.php";
+            } 
             break;
         case 'admin':
             if (empty($url[1])) {
