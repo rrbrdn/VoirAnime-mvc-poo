@@ -28,7 +28,7 @@
                                 <a class='nav-link dropdown-toggle' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
                                     <img class='rounded-circle' width='50' src='<?= URL ?>asset/img/<?= $_SESSION['img_profil'] ?>'></a>
                                 <div class='dropdown-menu'>
-                                    <a class='dropdown-item d-flex align-items-center' href='<?=URL?>ma-collection'><i class="fa-regular fa-bookmark me-2"></i>Ma collection</a>
+                                    <a class='dropdown-item d-flex align-items-center' href='<?=URL?>ma-collection/<?=$_SESSION['id']?>'><i class="fa-regular fa-bookmark me-2"></i>Ma collection</a>
                                     <a class='dropdown-item d-flex align-items-center' href='<?= URL ?>profil'><i class="fa-regular fa-user me-2"></i>Mon profil</a>
                                     <div class='dropdown-divider'></div>
                                     <a class='dropdown-item' href='<?= URL ?>deconnexion'><i class="fa-regular fa-right-to-bracket"></i>Se déconnecter</a>

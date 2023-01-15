@@ -40,9 +40,6 @@
 </div>
 <?php
 $class = "container-fluid";
-$nav = "<li class='nav-item'>
-<a class='nav-link' href='" . URL . "/deconnexion'>deconnexion</a>
-</li>";
 $content = ob_get_clean();
 require_once "view/base.html.php";
 

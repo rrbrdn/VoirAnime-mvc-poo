@@ -10,15 +10,16 @@
         <div class='d-flex justify-content-center p-3'>
             <iframe class="col-lg-12" width="1100" height="430" src="<?= $anime['video'] ?>" . $video . frameborder="0" allowfullscreen></iframe>
         </div>
+        <div class="mt-5">
+            <form action='<?= URL ?>ma-collection/add/<?= $anime['id'] ?>' method='post'>
+                <button id='btn' class='btn btn-sm rounded-1 d-flex align-items-center'>
+                    Ajouter à ma collection
+                </button>
+            </form>
+        </div>
     <?php endforeach ?>
 
-    <div class="mt-5">
-        <form action='<?=URL?>ma-collection' method='post'>
-            <button id='btn' class='btn btn-sm rounded-1 d-flex align-items-center'>
-                Ajouter à ma collection
-            </button>
-        </form>
-    </div>
+
 
     <?php if (!isset($_SESSION['id'])) : ?>
         <div class="container mt-5">

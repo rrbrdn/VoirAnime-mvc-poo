@@ -32,9 +32,6 @@
 </div>
 <?php
 $class = "container-fluid";
-$nav = "<li class='nav-item'>
-<a class='nav-link' href='./connexion.php'>deconexion</a>
-</li>";
 $content = ob_get_clean();
 require_once "base.html.php";
 

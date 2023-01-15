@@ -8,6 +8,8 @@ require_once "controller/AnimeController.php";
 $animeController = new AnimeController;
 require_once "controller/UserController.php";
 $userController = new UserController;
+require_once "controller/FavorisController.php";
+$favorisController = new FavorisController;
 
 if (empty($_GET['page'])) {
     $animeController->homeAnimeValidation();
@@ -48,9 +50,13 @@ if (empty($_GET['page'])) {
             }
             break;
         case 'ma-collection':
-            if (empty($url[1])) {
-                require_once "view/collection.view.php";
-            } 
+            if (empty($url[2])) {
+                $favorisController->userFavorites();
+            } elseif ($url[1] === "add") {
+                $favorisController->newFavoris($url[2]);
+            } elseif ($url[1] === "delete") {
+                $favorisController->deleteFavoris($url[2]);
+            }
             break;
         case 'admin':
             if (empty($url[1])) {
