@@ -14,7 +14,7 @@
             <div class="d-flex justify-content-center p-1 ">
                 <button type="submit" id="btn" class="btn rounded-3 w-75" name='connect-btn'>Connexion</button>
             </div>
-            <p>Pas de compte ? <a href="<?=URL?>inscription" style="color:RGB(244, 117, 33);">Créer un compte</a></p>
+            <p>Pas de compte ? <a href="<?=URL?>inscription" style="color:RGB(244, 117, 33);" class="text-decoration-none">Créer un compte</a></p>
         </fieldset>
     </form>
 </div>
@@ -23,5 +23,4 @@
 $class = "navbar-center mx-auto";
 $content = ob_get_clean();
 require_once "base.html.php";
-
 ?>

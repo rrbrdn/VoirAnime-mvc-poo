@@ -37,7 +37,7 @@
             <?php foreach ($myAnimes as $anime) : ?>
                 <a href="<?= URL ?>accueil/showAnime/<?= $anime['id'] ?>">
                     <figure class="card">
-                        <img src="./asset/img/<?= $anime['img'] ?>" />
+                        <img src="./asset/img/<?= $anime['img'] ?>">
                     </figure>
                 </a>
             <?php endforeach; ?>

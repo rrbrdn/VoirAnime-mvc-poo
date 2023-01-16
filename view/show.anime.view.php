@@ -3,10 +3,13 @@
 
 <div class="container">
     <?php foreach ($myAnimes as $anime) : ?>
-        <?php $id_anime =  $anime['id']; ?>
-        <div class='p-3 mt-5 text-white'>
-            <h4 class="text-white"><?= $anime['titre'] ?></h4>
-            <p><?= $anime['descri'] ?></p>
+        <?php $id_anime = $anime['id']; ?>
+        <div class='p-3 mt-5 text-white d-flex mb-5'>
+            <img src="<?= URL ?>asset/img/<?= $anime['img'] ?>" class="rounded-1" width="250">
+            <div class="ms-5">
+                <h1 class="text-white"><?= $anime['titre'] ?></h1>
+                <p><?= $anime['descri'] ?></p>
+            </div>
         </div>
         <div class='d-flex justify-content-center p-3'>
             <iframe class="col-lg-12" width="1100" height="430" src="<?= $anime['video'] ?>" . $video . frameborder="0" allowfullscreen></iframe>
