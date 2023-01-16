@@ -10,12 +10,20 @@ class CommentController
     public function __construct()
     {
         $this->commentManager = new CommentManager();
-        $this->commentManager->loadComments();
+        if (!empty($_POST['id_anime'])) {
+            $this->commentManager->loadComments($_POST['id_anime']);
+        }
     }
 
-    public function showCommentValidation()
+    public function newCommentValidation()
     {
-        $comments = $this->commentManager->getComments();
-        var_dump($comments);
+        $this->commentManager->newCommentDB($_POST['comment'], $_SESSION['id'], $_POST['id_anime']);
+        header('Location:' . URL . "accueil/showAnime/" . $_POST['id_anime']);
+    }
+
+    public function deleteCommentValidation()
+    {
+        $this->commentManager->deleteCommentDB($_POST['id']);
+        header('Location:' . URL . "accueil/showAnime/" . $_POST['id_anime']);
     }
 } 

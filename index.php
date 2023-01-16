@@ -23,6 +23,10 @@ if (empty($_GET['page'])) {
                 $animeController->homeAnimeValidation();
             } elseif ($url[1] === "showAnime") {
                 $animeController->showAnimeValidation($url[2]);
+            } elseif ($url[1] === "newComment") {
+                $commentController->newCommentValidation();
+            } elseif ($url[1] === "deleteComment") {
+                $commentController->deleteCommentValidation();
             }
             break;
         case 'connexion':
