@@ -13,18 +13,9 @@ class CommentController
         $this->commentManager->loadComments();
     }
 
-    public function showComment()
+    public function showCommentValidation()
     {
-       $comments = $this->commentManager->showComments();
-    }
-
-    public function newCommentDB($comment, $user_id, $id_anime)
-    {
-        $this->commentManager->newCommentDB($comment, $user_id, $id_anime);
-    }
-
-    public function deleteCommentDB($id)
-    {
-        $this->commentManager->deleteCommentDB($id);
+        $comments = $this->commentManager->getComments();
+        var_dump($comments);
     }
 } 

@@ -23,8 +23,6 @@
         </div>
     <?php endforeach ?>
 
-
-
     <?php if (!isset($_SESSION['id'])) : ?>
         <div class="container mt-5">
             <div class=" mb-3 pt-3" style="max-width: 30rem;border: 0.0625rem dashed #dadada;">
@@ -44,25 +42,11 @@
                     <textarea name="comment" class="form-control" id="exampleTextarea" rows="3" style="height: 92px;"></textarea>
                 </div>
                 <div class="d-flex justify-content-end mt-4">
-                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn" id="btn">commenter</button>
                 </div>
             </form>
         </div>
         <h4 class='text-white container'>Commentaires</h4>
-
-        <!-- <?php foreach ($comments as $comment) : ?>
-            <div class="container mt-5">
-                <div class="card" style="width: 30rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"><?= $comment['comment'] ?></p>
-                        <?php if (isset($_SESSION['roleUser']) && $_SESSION['roleUser'] == 1) : ?>
-                            <a href="<?= URL ?>commentaire/supprimer/<?= $comment['id'] ?>" class="btn btn-sm rounded-1" id="btn">Supprimer</a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?> -->
     <?php endif; ?>
 </div>
 
@@ -71,5 +55,4 @@ var_dump($comments);
 $class = "container-fluid";
 $content = ob_get_clean();
 require_once "view/base.html.php";
-
 ?>

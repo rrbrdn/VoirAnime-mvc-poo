@@ -2,10 +2,12 @@
 
 require_once "modele/Anime.php";
 require_once "modele/AnimeManager.php";
+require_once "modele/CommentManager.php";
 
 class AnimeController
 {
     private $animeManager;
+    private $commentManager;
 
     public function __construct()
     {
@@ -29,6 +31,9 @@ class AnimeController
     public function showAnimeValidation($id)
     {
         $myAnimes = $this->animeManager->showAnime($id);
+        $this->commentManager = new CommentManager();
+        $this->commentManager->loadComments($id);
+        $comments = $this->commentManager->getComments();
         require_once "view/show.anime.view.php";
     }
 
