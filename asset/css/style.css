@@ -2,14 +2,6 @@
   width: 45em;
 }
 
-#big3 p {
-  font-family: Arial, Helvetica, sans-serif !important;
-}
-
-#btn{
-  background-color: RGB(244, 117, 33);
-  color: RGB(35, 37, 43);
-}
 .card {
   border: none;
 }

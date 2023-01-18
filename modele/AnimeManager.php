@@ -136,7 +136,6 @@ class AnimeManager extends Manager
 
     public function editAnimeDB($id, $titre, $genre, $descri, $video)
     {
-
         // check if submitted with post
         if (!empty($_POST['titre']) && !empty($_POST['genre']) && !empty($_POST['descri']) && !empty($_POST['video'])) {
             // $reg = "/^[a-zA-Z0-9_ -]{3,50}$/";
@@ -167,24 +166,8 @@ class AnimeManager extends Manager
                         if (move_uploaded_file($file_tmp, $upload_dir . $file_name_new)) {
                             // if upload was successful
                             echo 'File uploaded successfully.';
-                            $req = ("UPDATE anime SET titre = :titre, genre = :genre, descri=:descri, video = :video, img = :img WHERE id = :id");
-                            $statement = $this->getBdd()->prepare($req);
-                            $statement->bindValue(":id", $id, PDO::PARAM_INT);
-                            $statement->bindValue(":titre", $titre, PDO::PARAM_STR);
-                            $statement->bindValue(":genre", $genre, PDO::PARAM_STR);
-                            $statement->bindValue(":descri", $descri, PDO::PARAM_STR);
-                            $statement->bindValue(":video", $video, PDO::PARAM_STR);
-                            $statement->bindValue(":img", $file_name_new, PDO::PARAM_STR);
-                            $result = $statement->execute();
-                            $statement->closeCursor();
-
-                            if ($result) {
-                                $this->getAnimeById($id)->setTitre($titre);
-                                $this->getAnimeById($id)->setGenre($genre);
-                                $this->getAnimeById($id)->setDescri($descri);
-                                $this->getAnimeById($id)->setVideo($video);
-                                $this->getAnimeById($id)->setImg($file_name_new);
-                            }
+                            $img = $file_name_new;
+                            
                         } else {
                             echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
                         }
@@ -195,8 +178,33 @@ class AnimeManager extends Manager
                     echo 'File type not allowed.';
                 }
             } else {
-                echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
+                $req = ("SELECT img FROM anime WHERE id = :id");
+                $statement = $this->getBdd()->prepare($req);
+                $statement->bindValue(":id", $id, PDO::PARAM_INT);
+                $statement->execute();
+                $myImg = $statement->fetch();
+                $img = $myImg['img'];
+                $statement->closeCursor();
             }
+
+            $req = ("UPDATE anime SET titre = :titre, genre = :genre, descri=:descri, video = :video, img = :img WHERE id = :id");
+                            $statement = $this->getBdd()->prepare($req);
+                            $statement->bindValue(":id", $id, PDO::PARAM_INT);
+                            $statement->bindValue(":titre", $titre, PDO::PARAM_STR);
+                            $statement->bindValue(":genre", $genre, PDO::PARAM_STR);
+                            $statement->bindValue(":descri", $descri, PDO::PARAM_STR);
+                            $statement->bindValue(":video", $video, PDO::PARAM_STR);
+                            $statement->bindValue(":img", $img, PDO::PARAM_STR);
+                            $result = $statement->execute();
+                            $statement->closeCursor();
+
+                            if ($result) {
+                                $this->getAnimeById($id)->setTitre($titre);
+                                $this->getAnimeById($id)->setGenre($genre);
+                                $this->getAnimeById($id)->setDescri($descri);
+                                $this->getAnimeById($id)->setVideo($video);
+                                $this->getAnimeById($id)->setImg($img);
+                            }
         }
     }
 
@@ -214,3 +222,69 @@ class AnimeManager extends Manager
         }
     }
 }
+
+
+
+// public function updateProduct($id, $name, $description, $price, $categorie)
+//     {
+//         echo 'on est là';
+//         if (!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['categorie'])) {
+//             if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+//                 echo 'si si';
+//                 var_dump($_FILES['img']);
+//                 // get details of the uploaded file
+//                 $file_tmp = $_FILES['img']['tmp_name'];
+//                 $file_name = $_FILES['img']['name'];
+//                 $file_size = $_FILES['img']['size'];
+//                 $file_type = $_FILES['img']['type'];
+//                 $file_ext = explode('.', $file_name);
+//                 // set upload directory
+//                 $upload_dir = 'public/assets/product/';
+//                 // set allowed file extensions
+//                 $allowed = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+
+//                 // check if file extension is on the list of allowed ones
+//                 if (in_array($file_type, $allowed)) {
+//                     // check if file size is not beyond expected size
+//                     if ($file_size < 2097152) {
+//                         // rename file
+//                         $file_name_new = uniqid() . '.' . $file_ext[1];
+//                         // and move it to the upload directory
+//                         if (move_uploaded_file($file_tmp, $upload_dir . $file_name_new)) {
+//                             // if upload was successful
+//                             echo 'File uploaded successfully.';
+//                             $img = $file_name_new;
+//                         } else {
+//                             echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
+//                         }
+//                     } else {
+//                         echo 'File size exceeds the maximum allowed size.';
+//                     }
+//                 } else {
+//                     echo 'File type not allowed.';
+//                 }
+//             } else {
+//                 // code pour récupérer la valeur de l'image dans la base de données
+//                 $bdd = $this->getBdd();
+//                 $query = "SELECT img FROM products WHERE id = :id";
+//                 $stmt = $bdd->prepare($query);
+//                 $stmt->bindValue(':id', $id);
+//                 $stmt->execute();
+//                 $result = $stmt->fetch();
+//                 $img = $result['img'];
+//                 $stmt->closeCursor();
+//             }
+//             // code pour mettre à jour les informations du produit dans la base de données
+//             $bdd = $this->getBdd();
+//             $query = "UPDATE products SET name = :name, description = :description, price = :price, img = :img, categorie = :categorie WHERE id = :id";
+//             $stmt = $bdd->prepare($query);
+//             $stmt->bindValue(':name', $name);
+//             $stmt->bindValue(':description', $description);
+//             $stmt->bindValue(':price', $price);
+//             $stmt->bindValue(':img', $img);
+//             $stmt->bindValue(':categorie', $categorie);
+//             $stmt->bindValue(':id', $id);
+//             $stmt->execute();
+//             $stmt->closeCursor();
+//         }
+//     }
