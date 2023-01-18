@@ -35,7 +35,7 @@ class AnimeManager extends Manager
         $req->execute();
         $myAnimes = $req->fetchAll();
         $req->closeCursor();
-        
+
         return $myAnimes;
     }
 
@@ -109,6 +109,7 @@ class AnimeManager extends Manager
                             if ($result) {
                                 $anime = new Anime($this->getBdd()->lastInsertId(), $titre, $genre, $descri, $video, $file_name_new);
                                 $this->addAnime($anime);
+                                echo "<script>alert('Anime ajouté !');</script>";
                             }
                         } else {
                             echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
@@ -167,7 +168,6 @@ class AnimeManager extends Manager
                             // if upload was successful
                             echo 'File uploaded successfully.';
                             $img = $file_name_new;
-                            
                         } else {
                             echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
                         }
@@ -188,23 +188,23 @@ class AnimeManager extends Manager
             }
 
             $req = ("UPDATE anime SET titre = :titre, genre = :genre, descri=:descri, video = :video, img = :img WHERE id = :id");
-                            $statement = $this->getBdd()->prepare($req);
-                            $statement->bindValue(":id", $id, PDO::PARAM_INT);
-                            $statement->bindValue(":titre", $titre, PDO::PARAM_STR);
-                            $statement->bindValue(":genre", $genre, PDO::PARAM_STR);
-                            $statement->bindValue(":descri", $descri, PDO::PARAM_STR);
-                            $statement->bindValue(":video", $video, PDO::PARAM_STR);
-                            $statement->bindValue(":img", $img, PDO::PARAM_STR);
-                            $result = $statement->execute();
-                            $statement->closeCursor();
+            $statement = $this->getBdd()->prepare($req);
+            $statement->bindValue(":id", $id, PDO::PARAM_INT);
+            $statement->bindValue(":titre", $titre, PDO::PARAM_STR);
+            $statement->bindValue(":genre", $genre, PDO::PARAM_STR);
+            $statement->bindValue(":descri", $descri, PDO::PARAM_STR);
+            $statement->bindValue(":video", $video, PDO::PARAM_STR);
+            $statement->bindValue(":img", $img, PDO::PARAM_STR);
+            $result = $statement->execute();
+            $statement->closeCursor();
 
-                            if ($result) {
-                                $this->getAnimeById($id)->setTitre($titre);
-                                $this->getAnimeById($id)->setGenre($genre);
-                                $this->getAnimeById($id)->setDescri($descri);
-                                $this->getAnimeById($id)->setVideo($video);
-                                $this->getAnimeById($id)->setImg($img);
-                            }
+            if ($result) {
+                $this->getAnimeById($id)->setTitre($titre);
+                $this->getAnimeById($id)->setGenre($genre);
+                $this->getAnimeById($id)->setDescri($descri);
+                $this->getAnimeById($id)->setVideo($video);
+                $this->getAnimeById($id)->setImg($img);
+            }
         }
     }
 
