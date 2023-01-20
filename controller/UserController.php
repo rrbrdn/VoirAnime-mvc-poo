@@ -46,7 +46,7 @@ class UserController
     public function connectUserValiation()
     {
         $this->usermanager->connectUserDB($_POST['email'], $_POST['pdw']);
-        header('Location:' . URL . '');    
+        header('Location:' . URL . 'accueil');    
     }
 
     public function disconnectUser()

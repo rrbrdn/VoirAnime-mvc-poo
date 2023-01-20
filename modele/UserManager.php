@@ -141,6 +141,6 @@ class UserManager extends Manager
     public function deconnectUserDB()
     {
         session_destroy();
-        header('Location:' . URL . '');
+        header('Location:' . URL . 'accueil');
     }
 }

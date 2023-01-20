@@ -1,7 +1,5 @@
 <?php ob_start() ?>
 
-
-
 <div class="container text-white d-flex justify-content-center mt-5">
     <form action="<?=URL?>inscription/uvalid" method="post" enctype="multipart/form-data">
         <fieldset>
@@ -30,15 +28,7 @@
     </form>
 </div>
 
-
-
-
 <?php
-
-$class = "navbar-center mx-auto";
-$nav = "";
 $content = ob_get_clean();
-
 require_once "base.html.php";
-
 ?>

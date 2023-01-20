@@ -83,18 +83,13 @@ class AnimeManager extends Manager
                             // if upload was successful
                             echo 'File uploaded successfully.';
 
-                            $req = "INSERT INTO anime(titre,genre,descri,img,video) VALUES 
-                        (:titre,
-                        :genre,
-                        :descri,
-                        :img,
-                        :video)";
+                            $req = "INSERT INTO anime(titre,genre,descri,img,video) VALUES (:titre,:genre,:descri,:img,:video)";
 
 
-                            // $titre = $_POST['titre'];
-                            // $genre = $_POST['genre'];
-                            // $descri = $_POST['descri'];
-                            // $video = $_POST['video'];
+                            $titre = $_POST['titre'];
+                            $genre = $_POST['genre'];
+                            $descri = $_POST['descri'];
+                            $video = $_POST['video'];
 
                             $stmt = $this->getBdd()->prepare($req);
                             $stmt->bindValue(":titre", $titre, PDO::PARAM_STR);
@@ -108,8 +103,8 @@ class AnimeManager extends Manager
                             if ($result) {
                                 $anime = new Anime($this->getBdd()->lastInsertId(), $titre, $genre, $descri, $video, $file_name_new);
                                 $this->addAnime($anime);
-                                echo "<script>alert('Anime ajouté !');</script>";
                             }
+
                         } else {
                             echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
                         }

@@ -20,7 +20,6 @@
 </div>
 
 <?php
-$class = "navbar-center mx-auto";
 $content = ob_get_clean();
 require_once "base.html.php";
 ?>
