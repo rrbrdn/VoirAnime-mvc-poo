@@ -1,8 +1,5 @@
 <?php
-
 require_once "Manager.php";
-require_once "Anime.php";
-
 
 class UserManager extends Manager
 {

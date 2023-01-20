@@ -5,7 +5,7 @@
     <?php foreach ($myAnimes as $anime) : ?>
         <?php $id_anime = $anime['id']; ?>
         <div class='p-3 mt-5 text-white d-flex flex-wrap mb-5 grid gap-5'>
-            <div class="mb-4 col-lg-3 col-md-12 row">
+            <div class="mb-4 col-lg-3 col-md-12  row">
                     <img src="<?= URL ?>asset/img/<?= $anime['img'] ?>" class="rounded-1" width="250">
                 <div class="mt-5 d-flex justify-content-center">
                     <?php if (!empty($_SESSION['roleUser'])) : ?>

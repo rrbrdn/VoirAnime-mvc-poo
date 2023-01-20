@@ -21,16 +21,15 @@ class AnimeController
         require_once "view/admin.view.php";
     }
 
-
     public function homeAnimeValidation(){
         $myAnimes = $this->animeManager->homeAnime();
         require_once "view/home.view.php";
     }
 
-
     public function showAnimeValidation($id)
     {
         $myAnimes = $this->animeManager->showAnime($id);
+        
         $this->commentManager = new CommentManager();
         $this->commentManager->loadComments($id);
         $comments = $this->commentManager->getComments();

@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="<?= URL ?>asset/css/style.css">
     <link rel="stylesheet" href="<?= URL ?>asset/css/base.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-    <title>Document</title>
+    <title>VoirAnime</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" id="nav">
+    <nav class="navbar navbar-expand-lg navbar-dark" id="nav"> 
         <div class="container-fluid">
             <a class="navbar-brand" id="titre" href="<?= URL ?>accueil">VoirAnime</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria- controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">

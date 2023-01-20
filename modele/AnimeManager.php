@@ -1,6 +1,5 @@
 <?php
 require_once "Manager.php";
-require_once "Anime.php";
 
 class AnimeManager extends Manager
 {
@@ -18,7 +17,7 @@ class AnimeManager extends Manager
 
     public function loadAnimes()
     {
-        $req = $this->getBdd()->prepare("SELECT * FROM anime");
+        $req = $this->getBdd()->prepare("SELECT * FROM anime ORDER BY id DESC");
         $req->execute();
         $myAnimes = $req->fetchAll();
         $req->closeCursor();
@@ -92,10 +91,10 @@ class AnimeManager extends Manager
                         :video)";
 
 
-                            $titre = $_POST['titre'];
-                            $genre = $_POST['genre'];
-                            $descri = $_POST['descri'];
-                            $video = $_POST['video'];
+                            // $titre = $_POST['titre'];
+                            // $genre = $_POST['genre'];
+                            // $descri = $_POST['descri'];
+                            // $video = $_POST['video'];
 
                             $stmt = $this->getBdd()->prepare($req);
                             $stmt->bindValue(":titre", $titre, PDO::PARAM_STR);
@@ -222,69 +221,3 @@ class AnimeManager extends Manager
         }
     }
 }
-
-
-
-// public function updateProduct($id, $name, $description, $price, $categorie)
-//     {
-//         echo 'on est là';
-//         if (!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['categorie'])) {
-//             if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
-//                 echo 'si si';
-//                 var_dump($_FILES['img']);
-//                 // get details of the uploaded file
-//                 $file_tmp = $_FILES['img']['tmp_name'];
-//                 $file_name = $_FILES['img']['name'];
-//                 $file_size = $_FILES['img']['size'];
-//                 $file_type = $_FILES['img']['type'];
-//                 $file_ext = explode('.', $file_name);
-//                 // set upload directory
-//                 $upload_dir = 'public/assets/product/';
-//                 // set allowed file extensions
-//                 $allowed = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
-
-//                 // check if file extension is on the list of allowed ones
-//                 if (in_array($file_type, $allowed)) {
-//                     // check if file size is not beyond expected size
-//                     if ($file_size < 2097152) {
-//                         // rename file
-//                         $file_name_new = uniqid() . '.' . $file_ext[1];
-//                         // and move it to the upload directory
-//                         if (move_uploaded_file($file_tmp, $upload_dir . $file_name_new)) {
-//                             // if upload was successful
-//                             echo 'File uploaded successfully.';
-//                             $img = $file_name_new;
-//                         } else {
-//                             echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
-//                         }
-//                     } else {
-//                         echo 'File size exceeds the maximum allowed size.';
-//                     }
-//                 } else {
-//                     echo 'File type not allowed.';
-//                 }
-//             } else {
-//                 // code pour récupérer la valeur de l'image dans la base de données
-//                 $bdd = $this->getBdd();
-//                 $query = "SELECT img FROM products WHERE id = :id";
-//                 $stmt = $bdd->prepare($query);
-//                 $stmt->bindValue(':id', $id);
-//                 $stmt->execute();
-//                 $result = $stmt->fetch();
-//                 $img = $result['img'];
-//                 $stmt->closeCursor();
-//             }
-//             // code pour mettre à jour les informations du produit dans la base de données
-//             $bdd = $this->getBdd();
-//             $query = "UPDATE products SET name = :name, description = :description, price = :price, img = :img, categorie = :categorie WHERE id = :id";
-//             $stmt = $bdd->prepare($query);
-//             $stmt->bindValue(':name', $name);
-//             $stmt->bindValue(':description', $description);
-//             $stmt->bindValue(':price', $price);
-//             $stmt->bindValue(':img', $img);
-//             $stmt->bindValue(':categorie', $categorie);
-//             $stmt->bindValue(':id', $id);
-//             $stmt->execute();
-//             $stmt->closeCursor();
-//         }
-//     }

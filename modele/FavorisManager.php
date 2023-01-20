@@ -1,6 +1,4 @@
 <?php
-
-require_once "Favoris.php";
 require_once "Manager.php";
 
 class FavorisManager extends Manager
