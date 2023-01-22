@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<div class="container text-white d-flex justify-content-center mt-5">
+<div class="container text-white d-flex justify-content-center mt-5 align-items-center" style="height: 70vh;">
     <form action="<?=URL?>connexion/cvalid" method="post" enctype="multipart/form-data">
         <fieldset>
             <div class='form-group'>
@@ -21,5 +21,5 @@
 
 <?php
 $content = ob_get_clean();
-require_once "base.html.php";
+require_once "component/base.html.php";
 ?>

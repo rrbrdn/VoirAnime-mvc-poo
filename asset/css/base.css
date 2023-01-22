@@ -14,15 +14,10 @@ body {
   color: RGB(35, 37, 43);
 }
 
-/* table {
-  background-color: RGB(35, 37, 43);
-} */
-
-/* thead {
- background-color: RGB(244, 117, 33);
- color: RGB(35, 37, 43);
-} */
-/* 
-tbody {
+#icon {
   color: RGB(244, 117, 33);
-} */
+}
+
+.content {
+  min-height: 80vh !important;
+}

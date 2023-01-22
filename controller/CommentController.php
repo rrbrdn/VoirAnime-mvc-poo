@@ -18,12 +18,12 @@ class CommentController
     public function newCommentValidation()
     {
         $this->commentManager->newCommentDB($_POST['comment'], $_SESSION['id'], $_POST['id_anime']);
-        header('Location:' . URL . "accueil/showAnime/" . $_POST['id_anime']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
     public function deleteCommentValidation()
     {
         $this->commentManager->deleteCommentDB($_POST['id']);
-        header('Location:' . URL . "accueil/showAnime/" . $_POST['id_anime']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 } 

@@ -86,6 +86,5 @@
 
 var_dump($user);
 $content = ob_get_clean();
-
-require_once "view/base.html.php";
+require_once "component/base.html.php";
 ?>

@@ -1,6 +1,5 @@
 <?php ob_start() ?>
 
-
 <div class="d-flex justify-content-center mt-5">
   <div id="carouselWithControls" class="carousel slide pointer-event" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -44,8 +43,7 @@
   </div>
 </div>
 
-
 <?php
 $content = ob_get_clean();
-require_once "view/base.html.php";
+require_once "component/base.html.php";
 ?>

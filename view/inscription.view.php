@@ -30,5 +30,5 @@
 
 <?php
 $content = ob_get_clean();
-require_once "base.html.php";
+require_once "component/base.html.php";
 ?>

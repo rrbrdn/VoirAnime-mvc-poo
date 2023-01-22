@@ -210,30 +210,3 @@ h2:after {
   transform: none;
 }
 
-button {
-  background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-
-
-/* modal */
-
-.modal {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.644);
-    z-index: 800;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-}
-/* .modal2 {
-  display: flex;
-} */
-

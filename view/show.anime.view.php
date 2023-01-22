@@ -5,7 +5,7 @@
     <?php foreach ($myAnimes as $anime) : ?>
         <?php $id_anime = $anime['id']; ?>
         <div class='p-3 mt-5 text-white d-flex flex-wrap mb-5 grid gap-5'>
-            <div class="mb-4 col-lg-3 col-md-12  row">
+            <div class="mb-4 col-lg-3 col-md-12 row">
                     <img src="<?= URL ?>asset/img/<?= $anime['img'] ?>" class="rounded-1" width="250">
                 <div class="mt-5 d-flex justify-content-center">
                     <?php if (!empty($_SESSION['roleUser'])) : ?>
@@ -58,7 +58,7 @@
         <?php if (!empty($comments)) : ?>
             <h4 class='text-white mt-5'>Commentaires</h4>
             <?php foreach ($comments as $comment) : ?>
-                <div class="toast show mt-5 col" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast show mt-5 mb-5" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
                         <img class='rounded-circle' width='50' src='<?= URL ?>asset/img/<?= $comment->getImg_profil() ?>'><strong class="me-auto ms-2"><?= $comment->getUsername() ?></strong>
                         <small><?= $comment->getDate() ?></small>
@@ -86,7 +86,6 @@
 </div>
 
 <?php
-$class = "container-fluid";
 $content = ob_get_clean();
-require_once "view/base.html.php";
+require_once "component/base.html.php";
 ?>

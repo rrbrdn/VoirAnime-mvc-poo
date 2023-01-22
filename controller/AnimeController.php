@@ -26,6 +26,7 @@ class AnimeController
         require_once "view/home.view.php";
     }
 
+
     public function showAnimeValidation($id)
     {
         $myAnimes = $this->animeManager->showAnime($id);
