@@ -30,15 +30,6 @@ class CommentManager extends Manager
         }
     }
 
-    // public function getCommentById($id)
-    // {
-    //     foreach ($this->comments as $comment) {
-    //         if ($comment->getIdComment() == $id) {
-    //             return $comment;
-    //         }
-    //     }
-    // }
-
     public function newCommentDB($comment, $user_id, $id_anime)
     {
         $date = date("Y-m-d H:i:s");  // obtenir la date actuelle

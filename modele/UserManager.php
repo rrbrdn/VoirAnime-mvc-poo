@@ -27,7 +27,8 @@ class UserManager extends Manager
         }
     }
 
-    public function profil(){
+    public function profil()
+    {
         $connectTest = $this->getBdd()->prepare('SELECT * FROM user WHERE id = :id');
         $connectTest->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
         $connectTest->execute();
@@ -36,14 +37,16 @@ class UserManager extends Manager
         return $Myusers;
     }
 
-    public function editMail($email){
+    public function editMail($email)
+    {
         $editMail = $this->getBdd()->prepare('UPDATE user SET email = :email WHERE id = :id');
         $editMail->bindValue(":email", $email, PDO::PARAM_STR);
         $editMail->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
         $editMail->execute();
     }
 
-    public function editPdw($pdw){
+    public function editPdw($pdw)
+    {
         $editPdw = $this->getBdd()->prepare('UPDATE user SET pdw = :pdw WHERE id = :id');
         $editPdw->bindValue(":pdw", $pdw, PDO::PARAM_STR);
         $editPdw->bindValue(":id", $_SESSION['id'], PDO::PARAM_INT);
@@ -54,17 +57,6 @@ class UserManager extends Manager
     {
         // check if submitted with post
         if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['pdw'])) {
-            // $reg = "/^[a-zA-Z0-9_ -]{3,50}$/";
-            // if (preg_match($reg, $_POST['username'])) {
-
-            // $reg = "/^[a-zA-Z0-9_ -]{3,50}$/";
-            // if (preg_match($reg, $_POST['email'])) {
-
-            // $reg = "/^[a-zA-Z0-9_ -]{3,50}$/";
-            // if (preg_match($reg, $_POST['pdw'])) {
-
-            // $reg = "/^[a-zA-Z0-9_ -]{3,50}$/";
-            // if (preg_match($reg, $_POST['img_profil'])) {
 
             if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
                 var_dump($_FILES['img']);
@@ -98,25 +90,13 @@ class UserManager extends Manager
                             $req->bindValue(":img_profil", $file_name_new, PDO::PARAM_STR);
                             $result = $req->execute();
                             $req->closeCursor();
-                            // }
-                            // }
-                            // }
-                            // }
-                            if ($result) {
-                                $user = new User($this->getBdd()->lastInsertId(), $username, $email, $pdw, $file_name_new, 0);
-                                $this->addUser($user);
-                            }
-                        } else {
-                            echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
                         }
-                    } else {
-                        echo 'File size exceeds the maximum allowed size.';
                     }
-                } else {
-                    echo 'File type not allowed.';
                 }
-            } else {
-                echo 'File upload failed - CHMOD/Folder doesn\'t exist?';
+            }
+            if ($result) {
+                $user = new User($this->getBdd()->lastInsertId(), $username, $email, $pdw, $file_name_new, 0);
+                $this->addUser($user);
             }
         }
     }

@@ -37,6 +37,6 @@
             </div>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2022 Copyright
+            © 2023 Copyright : Ferrante & Co
         </div>
     </footer>

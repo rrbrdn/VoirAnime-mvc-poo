@@ -21,7 +21,7 @@
                     <td><?= $anime->getId() ?></td>
                     <td><a href="<?= URL ?>admin/edit/<?= $anime->getId() ?>" class="btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
                     <td>
-                        <form method="POST" action="<?= URL ?>admin/delete/<?= $anime->getId() ?>" onSubmit="return confirm('Etes-vous certains de vouloir supprimer ce jeu ?')">
+                        <form method="POST" action="<?= URL ?>admin/delete/<?= $anime->getId() ?>" onSubmit="return confirm('Etes-vous certains de vouloir supprimer cet anime ?')">
                             <button class="btn" type="submit"><i class="fa-solid fa-trash"></i></button>
                         </form>
                     </td>

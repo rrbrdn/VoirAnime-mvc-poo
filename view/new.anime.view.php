@@ -34,7 +34,7 @@
                 </div>
                 <hr>
                 <div class="d-flex justify-content-end p-3">
-                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="submit">Envoyer</button>
                 </div>
             </fieldset>
         </form>

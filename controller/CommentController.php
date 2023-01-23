@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once "modele/CommentManager.php";
 require_once "modele/Comment.php";
@@ -17,7 +17,11 @@ class CommentController
 
     public function newCommentValidation()
     {
-        $this->commentManager->newCommentDB($_POST['comment'], $_SESSION['id'], $_POST['id_anime']);
+        $comment = htmlspecialchars($_POST['comment'], ENT_QUOTES, 'UTF-8');
+        $id_user = htmlspecialchars($_SESSION['id'], ENT_QUOTES, 'UTF-8');
+        $id_anime = htmlspecialchars($_POST['id_anime'], ENT_QUOTES, 'UTF-8');
+
+        $this->commentManager->newCommentDB($comment, $id_user, $id_anime);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
@@ -26,4 +30,4 @@ class CommentController
         $this->commentManager->deleteCommentDB($_POST['id']);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
-} 
+}

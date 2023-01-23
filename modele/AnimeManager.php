@@ -85,12 +85,6 @@ class AnimeManager extends Manager
 
                             $req = "INSERT INTO anime(titre,genre,descri,img,video) VALUES (:titre,:genre,:descri,:img,:video)";
 
-
-                            $titre = $_POST['titre'];
-                            $genre = $_POST['genre'];
-                            $descri = $_POST['descri'];
-                            $video = $_POST['video'];
-
                             $stmt = $this->getBdd()->prepare($req);
                             $stmt->bindValue(":titre", $titre, PDO::PARAM_STR);
                             $stmt->bindValue(":genre", $genre, PDO::PARAM_STR);
@@ -181,7 +175,7 @@ class AnimeManager extends Manager
                 $statement->closeCursor();
             }
 
-            $req = ("UPDATE anime SET titre = :titre, genre = :genre, descri=:descri, video = :video, img = :img WHERE id = :id");
+            $req = "UPDATE anime SET titre = :titre, genre = :genre, descri=:descri, video = :video, img = :img WHERE id = :id";
             $statement = $this->getBdd()->prepare($req);
             $statement->bindValue(":id", $id, PDO::PARAM_INT);
             $statement->bindValue(":titre", $titre, PDO::PARAM_STR);

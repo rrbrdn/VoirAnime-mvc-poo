@@ -4,16 +4,16 @@
   <div id="carouselWithControls" class="carousel slide pointer-event" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/4eb8686c-7ed6-4514-8f47-1145cd5cacab.webp" class="d-block w-100" alt="Slide 1">
+        <a href="<?= URL ?>accueil/showAnime/60"><img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/4eb8686c-7ed6-4514-8f47-1145cd5cacab.webp" class="d-block w-100" alt="Slide 1"></a>
       </div>
       <div class="carousel-item">
-        <img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/60e81b04-545e-4faa-83ab-27dcf788986a.webp" class="d-block w-100" alt="Slide 2">
+        <a href="<?= URL ?>accueil/showAnime/49"><img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/60e81b04-545e-4faa-83ab-27dcf788986a.webp" class="d-block w-100" alt="Slide 2"></a>
       </div>
       <div class="carousel-item">
-        <img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/7ec2c6f5-59d2-495f-b79c-a4fe104a8348.webp" class="d-block w-100" alt="Slide 3">
+        <a href="<?= URL ?>accueil/showAnime/67"><img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/7ec2c6f5-59d2-495f-b79c-a4fe104a8348.webp" class="d-block w-100" alt="Slide 3"></a>
       </div>
       <div class="carousel-item">
-        <img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/610f885a-1215-430f-817a-342584954416.webp" class="d-block w-100" alt="Slide 4">
+        <a href="<?= URL ?>accueil/showAnime/68"><img src="https://static.crunchyroll.com/fms/landscape_poster/960x540/100/png/610f885a-1215-430f-817a-342584954416.webp" class="d-block w-100" alt="Slide 4"></a>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselWithControls" role="button" data-bs-slide="prev">

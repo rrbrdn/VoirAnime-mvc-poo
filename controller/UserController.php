@@ -40,7 +40,7 @@ class UserController
     public function newUserValidation()
     {
         $this->usermanager->newUserDB($_POST['username'], $_POST['email'], $_POST['pdw']);
-        header('Location:' . URL . "accueil");
+        header('Location:' . URL . "connexion");
     }
 
     public function connectUserValiation()

@@ -31,7 +31,7 @@
 
     <?php if (!isset($_SESSION['id'])) : ?>
         <div class="mt-5">
-            <div class=" mb-3 pt-3" style="max-width: 30rem;border: 0.0625rem dashed #dadada;">
+            <div class="mb-3 pt-3" style="max-width: 30rem;border: 0.0625rem dashed #dadada;">
                 <div class="text-white d-flex justify-content-center">
                     <h4 class="text-white">Compte Requis</h4>
                 </div>
@@ -54,6 +54,7 @@
             </form>
         </div>
     <?php endif; ?>
+    
     <div class="mb-5">
         <?php if (!empty($comments)) : ?>
             <h4 class='text-white mt-5'>Commentaires</h4>
