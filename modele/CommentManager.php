@@ -23,7 +23,6 @@ class CommentManager extends Manager
         $myComments = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
 
-
         foreach ($myComments as $comment) {
             $c = new Comment($comment['id'], $comment['comment'], $comment['user_id'], $comment['id_anime'], $comment['username'], $comment['img_profil'], $comment['date']);
             $this->addComment($c);

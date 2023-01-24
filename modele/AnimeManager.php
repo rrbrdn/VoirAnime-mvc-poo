@@ -198,11 +198,11 @@ class AnimeManager extends Manager
 
     public function deleteAnimeDB($id)
     {
-        $req = "DELETE FROM anime WHERE id = :id";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
-        $result = $stmt->execute();
-        $stmt->closeCursor();
+            $req = "DELETE FROM anime WHERE id = :id";
+            $stmt = $this->getBdd()->prepare($req);
+            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+            $result = $stmt->execute();
+            $stmt->closeCursor();
 
         if ($result) {
             $anime = $this->getAnimeById($id);

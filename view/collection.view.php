@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <div class="wrapper">
-    <h2><strong>Mes favoris</strong></h2>
+    <h2><strong>Ma collection</strong></h2>
     <div class="container">
         <div class="cards">
             <?php foreach ($favoris as $fav) : ?>
